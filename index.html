@@ -1,127 +1,352 @@
+HTML
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10131c">
-  <meta name="description" content="FirohGms: seu portal de games, futebol e tecnologia.">
-  <title>FirohGms — Games e Futebol</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #10131c;
-      color: #f5f7fa;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      padding: 22px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #292e3b;
-      gap: 12px;
-    }
-    .logo { font-size: 25px; font-weight: 900; }
-    .logo span { color: #a3e635; }
-    nav { display: flex; gap: 18px; flex-wrap: wrap; }
-    a { color: inherit; text-decoration: none; }
-    nav a { color: #c4cad5; font-size: 14px; }
-    .hero {
-      padding: 55px 6%;
-      background: radial-gradient(ellipse at top right, #25442c, #10131c 65%);
-    }
-    .tag {
-      color: #a3e635;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    h1 { font-size: clamp(36px, 8vw, 64px); margin: 16px 0; }
-    .hero p { color: #bdc5d2; line-height: 1.7; max-width: 480px; }
-    .button {
-      display: inline-block;
-      background: #a3e635;
-      color: #18220e;
-      padding: 13px 19px;
-      border-radius: 8px;
-      font-weight: bold;
-      margin-top: 12px;
-    }
-    main { padding: 10px 6% 45px; }
-    .section-title { margin-top: 35px; font-size: 24px; }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 17px;
-    }
-    .card {
-      background: #191e2a;
-      border: 1px solid #2a3140;
-      border-radius: 13px;
-      padding: 20px;
-    }
-    .emoji { font-size: 32px; }
-    .card h3 { margin-bottom: 8px; }
-    .card p { color: #b8c1cf; font-size: 14px; line-height: 1.6; }
-    .category { color: #a3e635; font-size: 12px; font-weight: bold; }
-    footer {
-      text-align: center;
-      border-top: 1px solid #292e3b;
-      padding: 25px 12px;
-      color: #929bab;
-      font-size: 13px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0c0e14">
+<meta name="description" content="FirohGms: jogos, plataformas, avaliações e rankings gamer.">
+<title>FirohGms — Portal Gamer</title>
+
+<style>
+:root {
+  --bg:#0c0e14;
+  --panel:#171a24;
+  --line:#292e3c;
+  --text:#f5f6fa;
+  --muted:#a4aabd;
+  --green:#a3ef35;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Arial,sans-serif;
+}
+a { color:inherit; text-decoration:none; }
+header {
+  position:sticky; top:0; z-index:10;
+  background:#0c0e14ed;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav {
+  max-width:1150px; margin:auto; padding:18px 22px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:18px; flex-wrap:wrap;
+}
+.logo { font-size:27px; font-weight:900; letter-spacing:-1px; }
+.logo span { color:var(--green); }
+nav { display:flex; gap:20px; flex-wrap:wrap; }
+nav a { color:var(--muted); font-size:14px; }
+nav a:hover { color:var(--green); }
+main { max-width:1150px; margin:auto; padding:0 22px 55px; }
+.hero {
+  margin:30px 0 35px; padding:45px 30px;
+  border:1px solid #35432d; border-radius:24px;
+  background:radial-gradient(ellipse at 85% 10%,#284c2b 0%,transparent 48%),
+             linear-gradient(135deg,#171c23,#101219 70%);
+}
+.eyebrow {
+  color:var(--green); font-size:12px; font-weight:800;
+  letter-spacing:2px; text-transform:uppercase;
+}
+h1 { font-size:clamp(34px,7vw,62px); line-height:1.05; margin:18px 0; }
+.hero p { color:var(--muted); max-width:600px; line-height:1.8; }
+.pill {
+  display:inline-block; margin-top:12px; padding:10px 15px;
+  border-radius:10px; background:var(--green); color:#10140a;
+  font-weight:800;
+}
+.section-head {
+  display:flex; align-items:end; justify-content:space-between;
+  gap:15px; flex-wrap:wrap; margin:35px 0 20px;
+}
+h2 { font-size:27px; margin:0; }
+.small { color:var(--muted); font-size:13px; }
+.controls {
+  display:grid; grid-template-columns:2fr 1fr 1fr; gap:12px;
+  padding:16px; background:var(--panel);
+  border:1px solid var(--line); border-radius:16px;
+}
+input,select {
+  width:100%; min-width:0; padding:13px 12px;
+  border:1px solid var(--line); border-radius:10px;
+  background:#0e1119; color:var(--text); font-size:14px;
+}
+input:focus,select:focus { outline:2px solid var(--green); }
+.results { color:var(--muted); font-size:13px; margin:17px 2px; }
+.grid {
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px;
+}
+.game {
+  overflow:hidden; background:var(--panel);
+  border:1px solid var(--line); border-radius:17px;
+  transition:transform .18s,border-color .18s;
+}
+.game:hover { transform:translateY(-4px); border-color:#658b39; }
+.cover {
+  height:150px; display:flex; align-items:center; justify-content:center;
+  font-size:55px; position:relative;
+  background:linear-gradient(135deg,#293d2d,#161923);
+}
+.cover::after {
+  content:"FIROHGMS"; position:absolute; bottom:10px; right:12px;
+  font-size:10px; letter-spacing:3px; font-weight:900;
+  color:#ffffff80;
+}
+.game:nth-child(3n+2) .cover { background:linear-gradient(135deg,#3c2630,#171923); }
+.game:nth-child(3n) .cover { background:linear-gradient(135deg,#253650,#171923); }
+.info { padding:16px; }
+.tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+.tag {
+  font-size:10px; color:var(--green); background:#26351c;
+  padding:5px 8px; border-radius:6px; font-weight:750;
+}
+.game h3 { margin:0 0 9px; font-size:19px; }
+.meta { color:var(--muted); font-size:12px; line-height:1.8; }
+.score-row {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px; margin-top:15px; padding-top:13px;
+  border-top:1px solid var(--line);
+}
+.score { color:var(--green); font-size:23px; font-weight:900; }
+.score-label { color:var(--muted); font-size:10px; }
+.empty {
+  grid-column:1/-1; text-align:center; padding:40px 15px;
+  border:1px dashed var(--line); border-radius:15px; color:var(--muted);
+}
+footer {
+  border-top:1px solid var(--line); padding:25px 22px;
+  text-align:center; color:var(--muted); font-size:12px;
+}
+@media(max-width:800px) {
+  .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .controls { grid-template-columns:1fr 1fr; }
+  .controls input { grid-column:1/-1; }
+}
+@media(max-width:520px) {
+  .nav { padding:15px 18px; }
+  .logo { font-size:25px; }
+  nav { width:100%; justify-content:space-between; gap:10px; }
+  main { padding:0 16px 40px; }
+  .hero { padding:32px 22px; }
+  .grid { grid-template-columns:1fr; }
+  .cover { height:170px; }
+  .section-head { align-items:start; flex-direction:column; }
+}
+</style>
 </head>
+
 <body>
-  <header>
+<header>
+  <div class="nav">
     <a class="logo" href="#">Firoh<span>Gms</span></a>
     <nav>
-      <a href="#games">Games</a>
+      <a href="#jogos">Games</a>
       <a href="#futebol">Futebol</a>
       <a href="#tecnologia">Tecnologia</a>
     </nav>
-  </header>
+  </div>
+</header>
 
+<main>
   <section class="hero">
-    <div class="tag">GAMES • FUTEBOL • TECNOLOGIA</div>
-    <h1>O jogo nunca<br>para.</h1>
-    <p>Seu espaço para descobrir novidades dos games, acompanhar o futebol e explorar o mundo da tecnologia.</p>
-    <a class="button" href="#destaques">Explorar o portal ↗</a>
+    <div class="eyebrow">Games • Futebol • Tecnologia</div>
+    <h1>Seu próximo jogo<br>está aqui.</h1>
+    <p>Explore jogos, pesquise por plataforma, compare avaliações e descubra os títulos mais bem classificados no FirohGms.</p>
+    <a class="pill" href="#jogos">Explorar catálogo ↗</a>
   </section>
 
-  <main id="destaques">
-    <h2 class="section-title">Explore o FirohGms</h2>
-    <div class="cards">
-      <article class="card" id="games">
-        <div class="emoji">🎮</div>
-        <div class="category">UNIVERSO GAMER</div>
-        <h3>Games e emulação</h3>
-        <p>Novidades, análises, jogos e curiosidades sobre o mundo gamer.</p>
-      </article>
-      <article class="card" id="futebol">
-        <div class="emoji">⚽</div>
-        <div class="category">PAIXÃO PELO FUTEBOL</div>
-        <h3>Futebol</h3>
-        <p>Clubes, competições, análises táticas e histórias do esporte.</p>
-      </article>
-      <article class="card" id="tecnologia">
-        <div class="emoji">🚀</div>
-        <div class="category">INOVAÇÃO</div>
-        <h3>Tecnologia</h3>
-        <p>Celulares, hardware, desempenho e novidades tecnológicas.</p>
-      </article>
+  <section id="jogos">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Catálogo gamer</div>
+        <h2>Encontre seu jogo</h2>
+      </div>
+      <span class="small">Pesquisa • Filtros • Rankings</span>
     </div>
-  </main>
 
-  <footer>
-    <p><strong>FirohGms</strong> — Feito para quem ama games e futebol.</p>
-    <p>© <span id="year"></span> FirohGms</p>
-  </footer>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <div class="controls">
+      <input id="search" type="search" placeholder="🔎 Buscar jogo..." aria-label="Buscar jogo">
+      <select id="platform" aria-label="Filtrar por plataforma">
+        <option value="">Todas as plataformas</option>
+        <option>PC</option>
+        <option>PlayStation</option>
+        <option>Xbox</option>
+        <option>Nintendo Switch</option>
+      </select>
+      <select id="sort" aria-label="Ordenar jogos">
+        <option value="rating-desc">Maior nota</option>
+        <option value="rating-asc">Menor nota</option>
+        <option value="date-desc">Lançamentos recentes</option>
+        <option value="date-asc">Lançamentos antigos</option>
+        <option value="name-asc">Nome: A–Z</option>
+      </select>
+    </div>
+
+    <div class="results" id="results" aria-live="polite"></div>
+    <div class="grid" id="catalog"></div>
+    <p class="small">As notas exibidas são avaliações demonstrativas do FirohGms, não notas oficiais. Você pode editá-las no código.</p>
+  </section>
+
+  <section id="futebol">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Em breve</div>
+        <h2>Futebol</h2>
+      </div>
+    </div>
+    <p class="small">Uma área para notícias, resultados e análises do mundo da bola.</p>
+  </section>
+
+  <section id="tecnologia">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Em breve</div>
+        <h2>Tecnologia</h2>
+      </div>
+    </div>
+    <p class="small">Celulares, desempenho em jogos, hardware e emulação.</p>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> FirohGms • Feito para quem ama games.</footer>
+
+<script>
+const games = [
+  {
+    name:"Resident Evil 4",
+    date:"2023-03-24",
+    platforms:["PC","PlayStation","Xbox"],
+    genre:"Terror • Ação",
+    rating:9.5,
+    emoji:"🧟"
+  },
+  {
+    name:"Grand Theft Auto V",
+    date:"2013-09-17",
+    platforms:["PC","PlayStation","Xbox"],
+    genre:"Mundo aberto",
+    rating:9.2,
+    emoji:"🚘"
+  },
+  {
+    name:"Elden Ring",
+    date:"2022-02-25",
+    platforms:["PC","PlayStation","Xbox"],
+    genre:"RPG • Aventura",
+    rating:9.4,
+    emoji:"⚔️"
+  },
+  {
+    name:"Minecraft",
+    date:"2011-11-18",
+    platforms:["PC","PlayStation","Xbox","Nintendo Switch"],
+    genre:"Sandbox • Sobrevivência",
+    rating:9.3,
+    emoji:"⛏️"
+  },
+  {
+    name:"God of War Ragnarök",
+    date:"2022-11-09",
+    platforms:["PC","PlayStation"],
+    genre:"Ação • Aventura",
+    rating:9.1,
+    emoji:"🪓"
+  },
+  {
+    name:"Cyberpunk 2077",
+    date:"2020-12-10",
+    platforms:["PC","PlayStation","Xbox"],
+    genre:"RPG • Mundo aberto",
+    rating:8.8,
+    emoji:"🌆"
+  },
+  {
+    name:"FIFA 18",
+    date:"2017-09-29",
+    platforms:["PC","PlayStation","Xbox","Nintendo Switch"],
+    genre:"Futebol • Esporte",
+    rating:8.2,
+    emoji:"⚽"
+  },
+  {
+    name:"The Legend of Zelda: Breath of the Wild",
+    date:"2017-03-03",
+    platforms:["Nintendo Switch"],
+    genre:"Aventura",
+    rating:9.7,
+    emoji:"🗡️"
+  }
+];
+
+const search = document.getElementById("search");
+const platform = document.getElementById("platform");
+const sort = document.getElementById("sort");
+const catalog = document.getElementById("catalog");
+const results = document.getElementById("results");
+
+function renderGames() {
+  const term = search.value.trim().toLowerCase();
+  const selectedPlatform = platform.value;
+
+  let filtered = games.filter(game =>
+    game.name.toLowerCase().includes(term) &&
+    (!selectedPlatform || game.platforms.includes(selectedPlatform))
+  );
+
+  filtered.sort((a,b) => {
+    switch(sort.value) {
+      case "rating-asc": return a.rating - b.rating;
+      case "date-desc": return b.date.localeCompare(a.date);
+      case "date-asc": return a.date.localeCompare(b.date);
+      case "name-asc": return a.name.localeCompare(b.name, "pt-BR");
+      default: return b.rating - a.rating;
+    }
+  });
+
+  results.textContent = filtered.length +
+    (filtered.length === 1 ? " jogo encontrado" : " jogos encontrados");
+
+  if (!filtered.length) {
+    catalog.innerHTML = '<div class="empty">Nenhum jogo encontrado. Tente outra busca ou plataforma.</div>';
+    return;
+  }
+
+  catalog.innerHTML = filtered.map((game,index) => `
+    <article class="game">
+      <div class="cover" aria-hidden="true">${game.emoji}</div>
+      <div class="info">
+        <div class="tags">
+          ${game.platforms.map(p => `<span class="tag">${p}</span>`).join("")}
+        </div>
+        <h3>${index + 1}. ${game.name}</h3>
+        <div class="meta">
+          Gênero: ${game.genre}<br>
+          Lançamento: ${new Date(game.date+"T12:00:00").toLocaleDateString("pt-BR")}
+        </div>
+        <div class="score-row">
+          <div>
+            <div class="score">${game.rating.toFixed(1)}<span style="font-size:12px">/10</span></div>
+            <div class="score-label">NOTA FIROHGMS • DEMONSTRAÇÃO</div>
+          </div>
+          <span aria-label="Nota de ${game.rating} em 10">⭐</span>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+search.addEventListener("input",renderGames);
+platform.addEventListener("change",renderGames);
+sort.addEventListener("change",renderGames);
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderGames();
+</script>
 </body>
 </html>
